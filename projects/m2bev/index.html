@@ -12,8 +12,429 @@
     gtag('config', 'UA-156935549-3');
   </script>
 
+    <style type="text/css">
+      :root {
+      --small-thumb-border-radius: 2px;
+      --larger-thumb-border-radius: 3px;
+    }
 
+    html {
+    font-size: 14px;
+    line-height: 1.6;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    }
 
+    @media(min-width: 768px) {
+    html {
+      font-size: 16px;
+    }
+    }
+
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .base-grid,
+    .n-header,
+    .n-byline,
+    .n-title,
+    .n-article,
+    .n-footer {
+      display: grid;
+      justify-items: stretch;
+      grid-template-columns: [screen-start] 8px [page-start kicker-start text-start gutter-start middle-start] 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [text-end page-end gutter-end kicker-end middle-end] 8px [screen-end];
+      grid-column-gap: 8px;
+    }
+
+    .grid {
+    display: grid;
+    grid-column-gap: 8px;
+    }
+
+    @media(min-width: 768px) {
+      .base-grid,
+      .n-header,
+      .n-byline,
+      .n-title,
+      .n-article,
+      .n-footer {
+          display: grid;
+          justify-items: stretch;
+          grid-template-columns: [screen-start] 1fr [page-start kicker-start middle-start text-start] 45px 45px 45px 45px 45px 45px 45px 45px [ kicker-end text-end gutter-start] 45px [middle-end] 45px [page-end gutter-end] 1fr [screen-end];
+          grid-column-gap: 16px;
+      }
+
+      .grid {
+          grid-column-gap: 16px;
+      }
+    }
+
+    @media(min-width: 1000px) {
+      .base-grid,
+      .n-header,
+      .n-byline,
+      .n-title,
+      .n-article,
+      .n-footer {
+          display: grid;
+          justify-items: stretch;
+          grid-template-columns: [screen-start] 1fr [page-start kicker-start] 50px [middle-start] 50px [text-start kicker-end] 50px 50px 50px 50px 50px 50px 50px 50px [text-end gutter-start] 50px [middle-end] 50px [page-end gutter-end] 1fr [screen-end];
+          grid-column-gap: 16px;
+      }
+
+      .grid {
+          grid-column-gap: 16px;
+      }
+    }
+
+    @media (min-width: 1180px) {
+      .base-grid,
+      .n-header,
+      .n-byline,
+      .n-title,
+      .n-article,
+      .n-footer {
+          display: grid;
+          justify-items: stretch;
+          grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+          grid-column-gap: 32px;
+      }
+      .grid {
+          grid-column-gap: 32px;
+      }
+
+    }
+
+    .base-grid {
+    grid-column: screen;
+    }
+
+    /* default grid column assignments */
+    .n-title > *  {
+    grid-column: text;
+    }
+
+    .n-article > *  {
+    grid-column: text;
+    }
+
+    .n-header {
+      height: 0px;
+    }
+
+    .n-footer {
+      height: 60px;
+    }
+
+    .n-title {
+      padding: 4rem 0 1.5rem;
+    }
+
+    .l-page {
+      grid-column: page;
+    }
+
+    .l-article {
+      grid-column: text;
+    }
+
+    p {
+    margin-top: 0;
+    margin-bottom: 1em;
+    }
+
+    .pixelated {
+      image-rendering: pixelated;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    /*------------------------------------------------------------------*/
+    /* title */
+    .n-title h1 {
+      font-family: "Barlow",system-ui,Arial,sans-serif;
+      color:#082333;
+      grid-column: text;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.1em;
+      margin: 0 0 0.5rem;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .n-title h1 {
+          font-size: 50px;
+      }
+    }
+
+    /*------------------------------------------------------------------*/
+    /* article */
+    .n-article {
+      color: rgb(33, 40, 53);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      padding-top: 2rem;
+    }
+
+    .n-article h2 {
+      contain: layout style;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 1.25em;
+      margin: 2rem 0 1.5rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .n-article {
+          line-height: 1.7;
+      }
+
+      .n-article h2 {
+          font-size: 36px;
+      }
+    }
+
+    /*------------------------------------------------------------------*/
+    /* byline */
+
+    .n-byline {
+    contain: style;
+    overflow: hidden;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.8rem;
+    line-height: 1.8em;
+    padding: 1.5rem 0;
+    min-height: 1.8em;
+    }
+
+    .n-byline .byline {
+    grid-column: text;
+    }
+
+    .byline {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .grid {
+      display: grid;
+      grid-column-gap: 8px;
+    }
+
+    @media (min-width: 768px) {
+    .grid {
+      grid-column-gap: 16px;
+    }
+    }
+
+    .n-byline p {
+    margin: 0;
+    }
+
+    .n-byline h3 {
+      font-size: 0.6rem;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.5);
+      margin: 0;
+      text-transform: uppercase;
+    }
+    .n-byline .authors-affiliations {
+    grid-column-end: span 2;
+    grid-template-columns: 1fr 1fr;
+    }
+
+    /*------------------------------------------------------------------*/
+    /* figures */
+    .figure {
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    figcaption, .figcaption {
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 12px;
+      line-height: 1.5em;
+    }
+
+    ul.authors {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+    ul.authors li {
+      padding: 0 0.5rem;
+      display: inline-block;
+    }
+
+    ul.authors sup {
+      color: rgb(126,126,126);
+    }
+
+    ul.authors.affiliations  {
+      margin-top: 0.5rem;
+    }
+
+    ul.authors.affiliations li {
+      color: rgb(126,126,126);
+    }
+
+    /* Download section columns.  This switches between two layouts::after
+
+    - two columns on larger viewport sizes: side-by-side paper thumb and links
+    - single column: no thumb
+    */
+    .download-section {
+      display: grid;
+      grid-template-areas: "links";
+    }
+    .download-section h4 {
+      margin-left: 2.5rem;
+      display: block;
+    }
+    .download-thumb {
+      grid-area: thumb;
+      display: none;
+    }
+    .download-links {
+      grid-area: links;
+    }
+    img.dropshadow {
+      box-shadow: 0 1px 10px rgba(0,0,0, 0.3);
+    }
+
+    @media(min-width: 1180px) {
+      .download-section {
+          display: grid;
+          grid-template-areas: "thumb links";
+      }
+      .download-thumb {
+          display: block;
+      }
+    }
+
+    /* For BibTeX */
+    pre {
+      font-size: 0.9em;
+      padding-left: 7px;
+      padding-right: 7px;
+      padding-top: 3px;
+      padding-bottom: 3px;
+      border-radius: 3px;
+      background-color: rgb(235, 235, 235);
+      overflow-x: auto;
+    }
+
+    /* video caption */
+
+    .video {
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .videocaption {
+      display: flex;
+      font-size: 16px;
+      line-height: 1.5em;
+      margin-bottom: 1rem;
+      justify-content: center;
+    }
+      .disable-selection {
+            user-select: none;
+      -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer */
+    -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+    -webkit-user-select: none; /* Chrome, Safari, and Opera */
+    -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    h3.figtitle {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .fig-title-line {
+      grid-template-columns: 2fr 0.75fr;
+    }
+
+    .fig-thumb-image-row {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+    }
+
+    .fig-thumb-image-row-item {
+      width: 100%;
+      min-height: auto;
+      border-radius: var(--small-thumb-border-radius);
+    }
+
+    .fig-dataset-button {
+      border-color: rgba(0,0,0,0);
+      border-width: 1px;
+      border-style: solid;
+      cursor: pointer;
+      opacity: 0.6;
+    }
+
+    .fig-dataset-button.active {
+      border-color: rgba(0,0,0,0.7);
+      border-width: 1px;
+      border-style: solid;
+      opacity: 1.0;
+    }
+
+    .grid {
+      display: grid;
+      grid-column-gap: 8px;
+    }
+
+    .fig-3-image-row {
+      margin-top: 1em;
+      grid-template-columns: 1fr 1.3fr 1fr;
+      grid-template-rows: 1fr;
+    }
+
+    .fig-3-image-item {
+      justify-self: center;
+      align-self: center;
+      width: 100%;
+      border-radius: var(--larger-thumb-border-radius);
+    }
+
+    /*---------------------------------------------------------------------*/
+    .fig-slider {
+      grid-template-columns: auto 2fr;
+      grid-template-rows: 1fr;
+      margin-top: 1em;
+      align-items: start;
+      justify-content: center;
+    }
+
+    .fig-slider img.play_button {
+      margin-right: 8px;
+      cursor: pointer;
+      justify-self: center;
+    }
+    .fig-slider svg {
+      touch-action: none;
+    }
+
+    .fig-preload {
+      display: none;
+    }
+    /*---------------------------------------------------------------------*/
+    </style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -30,7 +451,7 @@
 
     <div style="overflow: hidden; background-color: #6699cc;">
       <div class="container">
-      <!-- <a href=https://www.nvidia.com/ style="float: left; color: black; text-align: center; padding: 12px 16px; text-decoration: none; font-size: 16px;"><img width="100%" src="https://nv-tlabs.github.io/3DStyleNet/assets/nvidia.svg"></a> -->
+      <a href=https://www.nvidia.com/ style="float: left; color: black; text-align: center; padding: 12px 16px; text-decoration: none; font-size: 16px;"><img width="100%" src="https://nv-tlabs.github.io/3DStyleNet/assets/nvidia.svg"></a> 
       <!-- <a href=https://nv-tlabs.github.io/ style="float: left; color: black; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 16px;"><strong>Toronto AI Lab</strong></a> -->
       </div>
     </div>
@@ -52,7 +473,7 @@
     </p>
     <p class='text-center'>The University of Hong Kong, NVIDIA, National University of Singapore, University of Toronto, Vector Institute, Caltech</p>
     <p class='text-center'>Tech Report</p>
-    <p class='text-center'><img src='demo.gif' class='img-fluid' style='width:1050px; border-radius:15px; padding:5px'></p>
+    <p class='text-center'><img src='figs/demo.gif' class='img-fluid' style='width:1050px; border-radius:15px; padding:5px'></p>
 
    
     </div>
@@ -90,10 +511,9 @@
     view-specific results that need post-processing to fuse
     into the final, world-consistent output. Bottom: M^2BEV
     with a unified BEV feature representation, supporting
-    multi-view multi-task learning with a single network.
+    <span style="color:#C71585">multi-view</span> <span style="color:#FF7F4F">multi-task</span> learning with a single network.
 
-    
-    <p class='text-center'><img src='idea.png' class='img-fluid' style="border:0px solid #000000; border-radius: 15px; height: 400px;"></p>
+    <p class='text-center'><img src='figs/idea.png' class='img-fluid' style="border:0px solid #000000; border-radius: 15px;  width: 700px;"></p>
 
     <hr/>
     <h4 class='text-center'>Overview</h4>
@@ -104,41 +524,32 @@
     generate a Bird’s-Eye View (BEV) feature representation. Finally, task-specific heads are adopted
     to predict 3D objects and maps.
 
-    <p class='text-center'><img src='pipeline.png' class='img-fluid' style="border:0px solid #000000; border-radius: 15px; width: 1000px;"></p> 
+    <p class='text-center'><img src='figs/pipeline.png' class='img-fluid' style="border:0px solid #000000; border-radius: 15px; width: 1000px;"></p> 
 
     <!-- <hr/>
     <h4 class='text-center'>Some Important Designs</h4>
 
-    <p class='text-center'><img src='design1.png' class='img-fluid' style="border:0px solid #000000; border-radius: 15px; width: 1000px;"></p>
-    <p class='text-center'><img src='design2.png' class='img-fluid' style="border:0px solid #000000; border-radius: 15px; width: 1000px;"></p> -->
+    <p class='text-center'><img src='figs/design1.png' class='img-fluid' style="border:0px solid #000000; border-radius: 15px; width: 1000px;"></p>
+    <p class='text-center'><img src='figs/design2.png' class='img-fluid' style="border:0px solid #000000; border-radius: 15px; width: 1000px;"></p> -->
 
 
+    <hr/>
+    <h4 class='text-center'>Results</h4>
 
-   
+    M^2BEV achieves state-of-the-art results on both 3D object detection and BEV segmentation on the nuScenes dataset. 
+    Moreover, benefit from the unified BEV representation, M^2BEV is more runtime-efficient than both detection-only and segmentation-only methods.
 
-    <!-- <p class='text-center'><img src='imgs/results.png' class='img-fluid' style="border:0px solid #000000; border-radius: 15px; height: 120px;">
-    <figcaption class="figure-caption text-center">Bird's-Eye-View Segmentation IOU (nuScenes and Lyft)</figcaption>
-    </p>
 
-    <p class='text-center'><img src='imgs/nusc.gif' class='img-fluid' style='height:250px; border-radius:15px; padding:5px'>
-    <figcaption class="figure-caption text-center"><b>nuScenes validation set</b> Input images are shown on the left. BEV inference output by our model is shown on the right. The BEV semantics are additionally projected back onto the input images for visualization convenience.</figcaption>
-    </p> -->
+    <p class='text-center'><img src='figs/det_perf.png' class='img-fluid' style="border:0px solid #000000; border-radius: 15px; width: 700px;"></p> 
+    <p class='text-center'><img src='figs/segm_perf.png' class='img-fluid' style="border:0px solid #000000; border-radius: 15px; width: 700px;"></p> 
 
     
-
-    <!-- <div class='row'>
-      <div class='col-6 text-center'>
-        <iframe src="https://drive.google.com/file/d/1dGU0zmsxJgFtXMkkHrD2P6DB_JjlvYnQ/preview" width="90%"></iframe>
-        <figcaption class="figure-caption text-center"><b>Camera Dropout</b> At test time, we remove different cameras from the camera rig. When a camera is removed, the network imputes semantics in the blind-spot by using information in the remaining cameras as well as priors about object shapes and road structure.</figcaption>
-      </div>
-      <div class='col-6 text-center'>
-        <iframe src="https://drive.google.com/file/d/1XwqzDYfzXhky1WNuXTKy7i-jVXgp4hc_/preview" width="90%"></iframe>
-        <figcaption class="figure-caption text-center"><b>Train on nuScenes -> Test on Lyft</b> We evaluate a model trained on the nuScenes dataset on the Lyft dataset. Segmentations output by the model are fuzzy but still meaningful. Quantitative transfer results against baselines can be found in our <a href='https://arxiv.org/pdf/2008.05711.pdf' target='_blank'>paper</a>.</figcaption>
-      </div>
-    </div> -->
+  
 
     <hr/>
     <h4 class='text-center'>M^2BEV Demo - Day</h4>
+
+    M^2BEV is able to detect dense obstacles and segment maps accurately under complex road conditions.
     <div class="embed-responsive embed-responsive-16by9">
       <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/oOemWNjX7o8" style='display:block;' allowfullscreen></iframe>
     </div>
@@ -146,10 +557,23 @@
 
     <hr/>
     <h4 class='text-center'>M^2BEV Demo - Night</h4>
+
+    M^2BEV is also able to learn to see objects and environments clearly in the dark.
+
     <div class="embed-responsive embed-responsive-16by9">
       <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/UF4b45qTzLU" allowfullscreen></iframe>
     </div>
     <br>
+
+    <hr/>
+    <h4 class='text-center'> Citation </h4>
+     <pre><code>@article{xie2022m,
+      title={M\^{} 2BEV: Multi-Camera Joint 3D Detection and Segmentation with Unified Birds-Eye View Representation},
+      author={Xie, Enze and Yu, Zhiding and Zhou, Daquan and Philion, Jonah and Anandkumar, Anima and Fidler, Sanja and Luo, Ping and Alvarez, Jose M},
+      journal={arXiv preprint arXiv:2204.05088},
+      year={2022}
+    }
+  }</code></pre>
 
 
 
