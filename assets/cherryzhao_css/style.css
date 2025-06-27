@@ -44,7 +44,8 @@
   
   header {
     background-color: #999;
-    background-image: url(https://cap-staging.csail.mit.edu/sites/default/files/page-backgrounds/About%20Us%20background.png);
+    background-image: url(https://news.mit.edu/sites/default/files/styles/news_article__image_gallery/public/images/202104/csail-web_168.jpg?itok=E-rC_wR0);
+    /* background-image: url(https://cap-staging.csail.mit.edu/sites/default/files/page-backgrounds/About%20Us%20background.png); */
     /* background-image: url(../imgs/mit_csail.png); */
     background-repeat: no-repeat;
     background-position: center center;
